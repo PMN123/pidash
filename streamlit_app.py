@@ -173,7 +173,7 @@ st.markdown(
         position: fixed;
         bottom: 0;
         width: 100%;
-        color: black;
+        color: white;
         text-align: center;
         padding: 10px;
         font-size: 12px;
