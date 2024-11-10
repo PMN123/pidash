@@ -68,8 +68,8 @@ def generate_pdf(filtered_data, pdf_filename):
         pagesize=A4,
         rightMargin=72,
         leftMargin=72,
-        topMargin=50,
-        bottomMargin=50,
+        topMargin=100,
+        bottomMargin=100,
         title=pdf_filename  # Set the title of the PDF document
     )
     elements = []
@@ -89,7 +89,20 @@ def generate_pdf(filtered_data, pdf_filename):
         "or use of this information without prior consent is prohibited."
     )
     elements.append(Paragraph(terms, body_style))
-    elements.append(Spacer(1, 0.2 * inch))
+    elements.append(Spacer(1, 0.3 * inch))
+
+    # Key Section
+    key_content = """
+    <b>Key</b><br/>
+    <b>PQ</b>: Prerequisite level performance indicator content develops employability and job-survival skills and concepts, including work ethics, personal appearance, and general business behavior.<br/>
+    <b>CS</b>: Career Sustaining level performance indicator content develops skills and knowledge needed for continued employment in or study of business based on the application of basic academics and business skills.<br/>
+    <b>SP</b>: Specialist level performance indicator content provides in-depth, solid understanding and skill development in all business functions.<br/>
+    <b>SU</b>: Supervisor Content provides the same in-depth, solid understanding and skill development in all business functions as in the specialist curriculum, and in addition, incorporates content that addresses the supervision of people.<br/>
+    <b>MN</b>: Manager Content develops strategic decision-making skills in all business functions needed to manage a business or department within an organization.<br/>
+    <b>ON</b>: Owner Content develops strategic decision-making skills in all aspects of business that are needed to own and operate a business.
+    """
+    elements.append(Paragraph(key_content, body_style))
+    elements.append(Spacer(1, 0.3 * inch))
 
     # Header for Selected Clusters
     selected_clusters_text = "Selected Clusters: " + ", ".join(selected_clusters)
@@ -120,6 +133,7 @@ def generate_pdf(filtered_data, pdf_filename):
     doc.build(elements, onFirstPage=add_page_number, onLaterPages=add_page_number)
 
     return pdf_path
+
 
 def split_first_line(text):
     """Splits the text into the first line and the rest."""
