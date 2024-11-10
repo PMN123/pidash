@@ -180,7 +180,7 @@ st.markdown(
     }
     </style>
     <div class="footer">
-        &copy; Praniil Nagaraj, 2025
+        &copy; Paneer, 2025
     </div>
     """,
     unsafe_allow_html=True
