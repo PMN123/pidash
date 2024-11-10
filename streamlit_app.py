@@ -68,8 +68,8 @@ def generate_pdf(filtered_data, pdf_filename):
         pagesize=A4,
         rightMargin=72,
         leftMargin=72,
-        topMargin=100,
-        bottomMargin=100,
+        topMargin=50,
+        bottomMargin=50,
         title=pdf_filename  # Set the title of the PDF document
     )
     elements = []
@@ -166,3 +166,22 @@ if selected_clusters and st.button("Generate PDF"):
             file_name=pdf_filename,
             mime="application/pdf"
         )
+st.markdown(
+    """
+    <style>
+    .footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        color: black;
+        text-align: center;
+        padding: 10px;
+        font-size: 12px;
+    }
+    </style>
+    <div class="footer">
+        &copy; Praniil Nagaraj, 2025
+    </div>
+    """,
+    unsafe_allow_html=True
+)
